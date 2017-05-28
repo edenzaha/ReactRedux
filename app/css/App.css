@@ -1,0 +1,32 @@
+.page {
+  font-family:"verdana"
+}
+.app {
+  background-color: green;
+  height: 50px;
+  border: 1px solid blue;
+}
+
+.bap {
+  background-color: red;
+  height: 25px;
+}
+
+.header {
+  height: 90px;
+  border-bottom: 1px solid #888;
+  line-height: 90px;
+  font-size: 40px;
+  background: #f2f2f2;
+  padding-left: 10px;
+}
+.footer {
+  height: 150px;
+  border-top: 1px solid #888;
+  padding: 5px 0 0 10px;
+}
+.body {
+  padding:10px;
+  min-height: 500px
+}
+ 

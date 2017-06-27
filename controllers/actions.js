@@ -11,3 +11,20 @@ exports.getById = function(req,res){
       })
    
 }
+
+exports.getZones = function(req,res){
+    var KeyCDN = require('keycdn');
+    var keycdn = new KeyCDN('sk_prod_ZDRmODcxMTU2Y2NjZjBmOGJj');
+
+    keycdn.get('zones.json', function(err, results) {
+        if (err) {
+            res.send({data:  err});
+            return;
+        }
+
+         res.send({data: results});        
+    });   
+
+
+    
+}

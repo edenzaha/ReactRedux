@@ -27,8 +27,9 @@ if (isDeveloping) {
   });
 
   app.use(middleware);
+
   app.use(webpackHotMiddleware(compiler));
-    app.get("/eden", function(req,res){
+  app.get("/eden", function(req,res){
     res.send("EDEN ZAHARONI");
   });
   app.get('*', function response(req, res) {

@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>react-kickstart</title>
@@ -9,5 +13,41 @@
   </head>
   <body>
     <div id="root"></div>
+    <input type="button" id="btnClass1" value="click me 1"></input>
+     <input type="button" id="btnClass2" value="click me 2"></input>
+  <input type="button" id="btnClass3" value="click me 3"></input>     
+    <script>
+     
+     for(let i=1;i<=3;i++){
+       var btn = document.getElementById("btnClass" + i);
+
+
+
+    
+        $(btn).click(function(){
+            alert(i);
+          });   
+      
+     }
+ 
+
+    (function (name,age) {
+        console.log("Hello " + name + " Age=" + age);
+    })("Dana",37);
+
+
+ 
+
+      for(var x=0;x<5;x++){
+        (function (x) {
+            setTimeout(function() {
+               console.log(x);
+            }, x*1000);
+        })(x);
+
+     
+      }
+       
+    </script>
   </body>
 </html>

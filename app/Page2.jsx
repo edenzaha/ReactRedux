@@ -11,13 +11,20 @@ class Page2 extends React.Component {
     this.state = {description: "Mongo DB Demo"};
   }
   componentDidMount(){
- 
+    request
+      .get("/actions/keycdn/zones")
+      .set('Accept', 'application/json')
+      .end((err,res) => {
+        //MAGIC
+        this.setState({data: res.body.data.data.zones[0].id});
+      });
+
   }
   render() {
     return (
       <Layout pageDescription={this.state.description}>
         <div>
-          PAGE2
+          PAGE2 - {this.state.data}
         </div>
       </Layout>
     );

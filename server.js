@@ -32,13 +32,21 @@ if (isDeveloping) {
   app.get("/eden", function(req,res){
     res.send("EDEN ZAHARONI");
   });
+
+ 
+  app.get("/redux", function(req,res){
+      res.sendFile(path.join(__dirname, 'app/html/redux.html'));
+  });  
+
+  app.get("/reactRedux", function(req,res){
+      res.sendFile(path.join(__dirname, 'app/html/reactRedux.html'));
+  });  
+  //app.use('/dist',express.static(path.join(__dirname, 'app/static')));
+ 
   app.get('*', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();
   });
-
-
-
 } else {
   app.use(express.static(__dirname + '/dist'));
   app.get('*', function response(req, res) {

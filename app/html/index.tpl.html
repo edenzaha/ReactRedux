@@ -16,38 +16,6 @@
     <input type="button" id="btnClass1" value="click me 1"></input>
      <input type="button" id="btnClass2" value="click me 2"></input>
   <input type="button" id="btnClass3" value="click me 3"></input>     
-    <script>
-     
-     for(let i=1;i<=3;i++){
-       var btn = document.getElementById("btnClass" + i);
-
-
-
-    
-        $(btn).click(function(){
-            alert(i);
-          });   
-      
-     }
- 
-
-    (function (name,age) {
-        console.log("Hello " + name + " Age=" + age);
-    })("Dana",37);
-
-
- 
-
-      for(var x=0;x<5;x++){
-        (function (x) {
-            setTimeout(function() {
-               console.log(x);
-            }, x*1000);
-        })(x);
-
-     
-      }
-       
-    </script>
+ <script src="/main.js"></script>
   </body>
 </html>

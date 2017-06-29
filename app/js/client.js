@@ -11,7 +11,7 @@ import TestApp from "./testsApplication/components/App"
 
 let store = createStore(todoApp);
 const app = document.getElementById("app");
-
+const mainApp = document.getElementById("mainApp")
 
 
 const Apps = {
@@ -36,7 +36,7 @@ const Main = () => (
 
 
 
-ReactDOM.render(<Main />, app)
+ReactDOM.render(<Main />, mainApp)
 
  
 function AppSwitcher(selectedApp = Apps.TESTS){

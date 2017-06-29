@@ -10,7 +10,7 @@ const config = require('./webpack.config.js');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
-require("./routes")(app);
+ 
 if (isDeveloping) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
@@ -33,16 +33,7 @@ if (isDeveloping) {
     res.send("EDEN ZAHARONI");
   });
 
- 
-  app.get("/redux", function(req,res){
-      res.sendFile(path.join(__dirname, 'app/html/redux.html'));
-  });  
-
-  app.get("/reactRedux", function(req,res){
-      res.sendFile(path.join(__dirname, 'app/html/reactRedux.html'));
-  });  
-  //app.use('/dist',express.static(path.join(__dirname, 'app/static')));
- 
+   
   app.get('*', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();

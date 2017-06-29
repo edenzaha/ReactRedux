@@ -7,28 +7,24 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = 
 {
   devtool: 'eval-source-map',
-  entry: {
-    redux: ['webpack-hot-middleware/client?reload=true', path.join(__dirname, 'app/static/redux.js')],
-    reduxMiddleware: ['webpack-hot-middleware/client?reload=true', path.join(__dirname, 'app/static/reduxMiddleware.js')],
-    reduxAsyncAction: ['webpack-hot-middleware/client?reload=true', path.join(__dirname, 'app/static/reduxAsyncAction.js')],
-    reduxAsyncPromise: ['webpack-hot-middleware/client?reload=true', path.join(__dirname, 'app/static/reduxAsyncPromise.js')],    
-    reactReduxClient : ['webpack-hot-middleware/client?reload=true', path.join(__dirname, 'app/static/reactReduxClient.js')],    
-    main: path.join(__dirname, 'app/main.js')
-  },
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+     path.join(__dirname, 'app/js/client.js')
+  ],
   output: {
     path: path.join(__dirname, '/dist/'),    
-    filename: '[name].js',
+    filename: 'client.js',
     publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/html/index.tpl.html',
-      inject: false,
+      inject: "body",
       filename: 'index.html'
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     })  
@@ -37,16 +33,18 @@ module.exports =
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
-        "presets": ["react", "es2015", "stage-0", "react-hmre"]
+        "presets": ["react", "es2015", "stage-0", "react-hmre"],
+         plugins: ["transform-decorators-legacy"]
       }
     }, 
     {
       test: /\.js$/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
-        "presets": ["react", "es2015", "stage-0", "react-hmre"]
+        "presets": ["react", "es2015", "stage-0", "react-hmre"],
+         plugins: ["transform-decorators-legacy"]
       }
     },    
     {

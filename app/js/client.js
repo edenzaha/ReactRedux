@@ -5,6 +5,9 @@ import { createStore } from "redux"
 import todoApp from "./todoApplication/reducers/todosReducers"
 import PropTypes from 'prop-types'
 
+//basics
+import  {BasicRenderer, Basic1_App} from "./testsApplication/components/basic_1"
+import  {Card } from "./testsApplication/components/basic_2"
 //root apps
 import App from "./todoApplication/components/App"
 import TestApp from "./testsApplication/components/App"
@@ -14,10 +17,11 @@ const app = document.getElementById("app");
 const mainApp = document.getElementById("mainApp")
 
 
-const Apps = {
-    TESTS : "Tests",
-    TODO : "Todo"
-}
+const Apps = [
+    {key: 1, text:"General Test", component: TestApp},
+    {key: 2, text:"Todo App"},
+    {key: 3, text:"Basic Tutorial #1", component:Basic1_App}
+]
 
 const AppLink = ({text,onAppClick}) => (
     <div>
@@ -28,27 +32,33 @@ const AppLink = ({text,onAppClick}) => (
 
 const Main = () => (
     <div>        
-        {Object.keys(Apps).map((k,i) => (
-            <AppLink key={i} text={k} onAppClick={()=> AppSwitcher(k)} />
+        {Apps.map(app => (
+              <AppLink key={app.key} text={app.text} onAppClick={()=> AppSwitcher(app)} />
         ))}
+
+
     </div>
 )
 
 
 
 ReactDOM.render(<Main />, mainApp)
-
  
-function AppSwitcher(selectedApp = Apps.TESTS){
-    switch(selectedApp){
-        case "TESTS":
-            ReactDOM.render(<TestApp />,app);
+ 
+
+function AppSwitcher(selectedApp = Apps[0]){
+    switch(selectedApp.key){
+        case 1:
+            ReactDOM.render(<selectedApp.component />,app);
             break;
-        case "TODO":
+        case 2:
             ReactDOM.render(
             <Provider store={store}>
                 <App />
             </Provider>,app);
+            break;
+        default:
+             ReactDOM.render(<selectedApp.component  />, app)
             break;
     }
 }

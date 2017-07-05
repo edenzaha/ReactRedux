@@ -27,7 +27,13 @@ module.exports =
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
-    })  
+    }),
+    new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+            "Tether": 'tether'
+        })  
   ],
   module: {
     loaders: [{
@@ -52,7 +58,8 @@ module.exports =
       loader: 'json'
     }, {
       test: /\.css$/,
-      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+      loader: [ 'style-loader', 'css-loader' ],
+      include: __dirname
     }]
   }
 };

@@ -32,12 +32,15 @@ if (isDeveloping) {
   app.get("/eden", function(req,res){
     res.send("EDEN ZAHARONI");
   });
+ 
 
-   
   app.get('*', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();
   });
+
+
+  //app.use(express.static('app/css'));
 } else {
   app.use(express.static(__dirname + '/dist'));
   app.get('*', function response(req, res) {

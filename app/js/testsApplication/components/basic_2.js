@@ -19,7 +19,7 @@ import axios from "axios"
  const CardList = (props) => {
      return (
          <div>
-             {props.cards.map(card=> <Card key={card.id} {...card} />)}             
+             {props.cards.map(card=> <Card key {...card} />)}             
          </div>
      )
  }
@@ -63,5 +63,5 @@ class CardsApp extends React.Component {
     }
 }
 
-
- ReactDOM.render(<CardsApp />,document.getElementById("app"))
+export {CardsApp}
+ //ReactDOM.render(<CardsApp />,document.getElementById("app"))

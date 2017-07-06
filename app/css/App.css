@@ -36,6 +36,9 @@ h1 {
 }
 
 /*Numbers Game*/
+.gameContainer {
+  max-width: 700px;
+}
 .gameContainer .fa-star {
   margin:0.5em;
   font-size: 24px;
@@ -60,6 +63,9 @@ h1 {
   background-color: #aaddaa;
   color:#99bb99;
   cursor: not-allowed;
+}
+.gameContainer .timerContainer {
+  display: inline-block;
 }
 
 

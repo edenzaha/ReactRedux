@@ -32,6 +32,7 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "bootstrap": "^4.0.0-alpha.6",
     "keycdn": "^0.2.0",
+    "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",

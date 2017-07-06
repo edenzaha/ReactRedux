@@ -12,6 +12,8 @@ import PropTypes from 'prop-types'
 import  {BasicRenderer, Basic1_App} from "./testsApplication/components/basic_1"
 import  {CardsApp} from "./testsApplication/components/basic_2"
 import  {Game} from "./testsApplication/components/basic_3"
+import  {ReactReduxApp} from "./testsApplication/components/basic_4_redux"
+
 //root apps
 import App from "./todoApplication/components/App"
 import TestApp from "./testsApplication/components/App"
@@ -26,10 +28,11 @@ const Apps = [
     {key: 2, text:"Todo App"},
     {key: 3, text:"Basic Tutorial #1", component:Basic1_App},
     {key: 4, text:"Basic Tutorial #2", component:CardsApp},
-    {key: 5, text:"Basic Tutorial - Numbers Game", component:Game}
+    {key: 5, text:"Basic Tutorial - Numbers Game", component:Game},
+    {key: 6, text:"React / Redux", component:ReactReduxApp}
 ]
 
-const DEFAULT_APP = Game;
+const DEFAULT_APP = ReactReduxApp;
 
 const AppLink = ({text,onAppClick}) => (
     <div>

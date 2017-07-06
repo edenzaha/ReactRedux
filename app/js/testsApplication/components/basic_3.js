@@ -116,7 +116,7 @@ class Game extends React.Component {
         usedNumbers : [],
         redraws: 5,
         doneStatus:null,
-        timer: 3*1000
+        timer: 60*1000
     });
 
     state = Game.initialState();
@@ -191,7 +191,7 @@ class Game extends React.Component {
             }
 
             if (prevState.redraws===0 && !this.possibleSolutions(prevState)){
-                return {doneStatus:'Game Over!'}
+                return {doneStatus:'Game Over!', timer : 0}
             }
         })
     }
@@ -202,7 +202,11 @@ class Game extends React.Component {
     
     countTime = () => {
         let self = this;
-        let i = setInterval(()=> {            
+        let i = setInterval(()=> {     
+            if (self.state.doneStatus!=null){
+                 clearInterval(i);
+                 return {timer : 0}
+            }       
             this.setState((prevState)=> {
                 let curTime = prevState.timer - 1000;  
                 if (curTime === 0){
